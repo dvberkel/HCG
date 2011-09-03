@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load('visualization', '1.0', {'packages':['corechart']});
+			google.setOnLoadCallback(drawChart);
+
+			function drawChart() {
+
+				var data = new google.visualization.DataTable();
+				data.addColumn('number', 'HCG');
+				data.addRows([
+					[Math.log(7000)],
+					[Math.log(1500)],
+					[Math.log(220)],
+					[Math.log(89)],
+					[Math.log(35)]
+				]);
+
+				var options = {'title':'Log HCG level', 'width':800, 'height':600};
+
+				var chart = new google.visualization.ColumnChart(document.getElementById('cure'));
+				chart.draw(data, options);
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="cure" style="width:800; height:600"></div>
+	</body>
+</html>
