@@ -2,11 +2,13 @@
 	<head>
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 		<script type="text/javascript">
+			var measurements = [7000, 1500, 220, 89, 35];
+		</script>
+		<script type="text/javascript">
 			google.load('visualization', '1.0', {'packages':['corechart']});
 			google.setOnLoadCallback(drawChart);
 			
 			function drawChart() {
-				var measurements = [7000, 1500, 220, 89, 35];			
 				var logs = logsOf(measurements);	
 								
 				var data = new google.visualization.DataTable();
@@ -30,7 +32,7 @@
 				var logs = []
 				for (var index = 0; index < measurements.length; index++) {
 					logs.push(Math.log(measurements[index]));
-				}				
+				}		
 				return logs;
 			}
 		</script>
