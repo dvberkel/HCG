@@ -17,7 +17,12 @@
 					[Math.log(35)]
 				]);
 
-				var options = {'title':'Log HCG level', 'width':800, 'height':600};
+				var options = {
+					'title': 'Log HCG level', 
+					'width': 800, 
+					'height': 600,
+					'colors': ['ad25ff']
+				};
 
 				var chart = new google.visualization.ColumnChart(document.getElementById('cure'));
 				chart.draw(data, options);
