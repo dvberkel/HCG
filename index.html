@@ -4,18 +4,16 @@
 		<script type="text/javascript">
 			google.load('visualization', '1.0', {'packages':['corechart']});
 			google.setOnLoadCallback(drawChart);
-
+			
 			function drawChart() {
-
+				var measurements = [7000, 1500, 220, 89, 35];			
+				var logs = logsOf(measurements);	
+								
 				var data = new google.visualization.DataTable();
 				data.addColumn('number', 'HCG');
-				data.addRows([
-					[Math.log(7000)],
-					[Math.log(1500)],
-					[Math.log(220)],
-					[Math.log(89)],
-					[Math.log(35)]
-				]);
+				for (var index = 0; index < logs.length; index++) {
+					data.addRow([logs[index]]);
+				}
 
 				var options = {
 					'title': 'Log HCG level', 
@@ -26,6 +24,14 @@
 
 				var chart = new google.visualization.ColumnChart(document.getElementById('cure'));
 				chart.draw(data, options);
+			}
+			
+			function logsOf(measurements) {
+				var logs = []
+				for (var index = 0; index < measurements.length; index++) {
+					logs.push(Math.log(measurements[index]));
+				}				
+				return logs;
 			}
 		</script>
 	</head>
